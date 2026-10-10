@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}
+Echoes of Elarion | Lore
+{% endblock %}
+
+{% block content %}
+
+<h2>The Lore of Elarion</h2>
+
+<p>
+    Welcome, {{ player_name }}!
+</p>
+
+<p>
+    Current XP: <strong>{{ xp }}</strong>
+    |
+    Level: <strong>{{ level }}</strong>
+</p>
+
+<p>
+    Discover the history of Elarion. Each new piece of lore
+    you uncover will grant you 1 XP.
+</p>
+
+<hr>
+
+<h3>Choose a topic to explore</h3>
+
+{% for key, lore in lore_entries.items %}
+
+    <div class="lore-entry">
+        <a href="?topic={{ key }}">
+            {{ lore.title }}
+        </a>
+    </div>
+
+{% endfor %}
+
+{% if selected_lore %}
+
+    <hr>
+
+    <h3>{{ selected_lore.title }}</h3>
+
+    <p>
+        {{ selected_lore.content }}
+    </p>
+
+    {% if xp_gained %}
+        <p>
+            <strong>You discovered new lore and gained 1 XP!</strong>
+        </p>
+    {% else %}
+        <p>
+            You have already discovered this piece of lore.
+        </p>
+    {% endif %}
+    {% if level_up %}
+        <div class="level-up">
+            <h3>Level Up!</h3>
+
+            <p>
+                You have reached Level {{ level }}!
+            </p>
+
+            <p>
+                A new path of knowledge has been unlocked.
+            </p>
+        </div>
+    {% endif %}
+
+{% endif %}
+
+{% endblock %}
