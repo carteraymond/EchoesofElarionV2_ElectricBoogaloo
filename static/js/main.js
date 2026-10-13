@@ -1,5 +1,8 @@
-function welcomeAdventurer() {
-    console.log("Welcome to Echoes of Elarion!");
-}
+function changeHeading() {
 
-welcomeAdventurer();
+    const header = document.querySelector("h1");
+    header.textContent = "Welcome to Echoes of Elarion!";
+   
+}
+const button = document.querySelector("#change-heading-btn");
+ button.addEventListener("click", changeHeading);

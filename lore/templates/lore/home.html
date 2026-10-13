@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}
 Echoes of Elarion | Lore
@@ -27,15 +28,27 @@ Echoes of Elarion | Lore
 
 <h3>Choose a topic to explore</h3>
 
-{% for key, lore in lore_entries.items %}
+<input
+    type="search"
+    id="lore-search"
+    placeholder="Search lore topics..."
+>
 
-    <div class="lore-entry">
-        <a href="?topic={{ key }}">
-            {{ lore.title }}
-        </a>
-    </div>
+<div id="lore-list">
+    {% for key, lore in lore_entries.items %}
 
-{% endfor %}
+        <div class="lore-entry">
+            <a href="?topic={{ key }}">
+                {{ lore.title }}
+            </a>
+        </div>
+
+    {% endfor %}
+</div>
+
+<p id="no-results" hidden>
+    No matching lore found.
+</p>
 
 {% if selected_lore %}
 
@@ -72,4 +85,9 @@ Echoes of Elarion | Lore
 
 {% endif %}
 
+
+{% endblock %}
+{% block scripts %}
+{{ block.super }}
+    <script src="{% static 'js/lore.js' %}"></script>
 {% endblock %}
