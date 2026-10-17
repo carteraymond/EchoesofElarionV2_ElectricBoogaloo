@@ -7,7 +7,7 @@ Echoes of Elarion | Lore
 
 {% block content %}
 
-<h2>The Lore of Elarion</h2>
+<h2>The Archives of Elarion</h2>
 
 <p>
     Welcome, {{ player_name }}!
@@ -26,27 +26,27 @@ Echoes of Elarion | Lore
 
 <hr>
 
-<h3>Choose a topic to explore</h3>
-<div id="lore-tree"></div>
+<h3>Explore the Archives</h3>
+
+<p>
+    Browse the categories below or search for a specific
+    piece of Elarion's history.
+</p>
+
+{{ lore_entries|json_script:"lore-data" }}
 
 <input
     type="search"
     id="lore-search"
-    placeholder="Search lore topics..."
+    placeholder="Search the Archives..."
+    aria-label="Search the Archives of Elarion"
 >
 
-<div id="lore-list">
-    {% for key, lore in lore_entries.items %}
+<div id="lore-tree"></div>
 
-        <div class="lore-entry">
-            <a href="?topic={{ key }}">
-                {{ lore.title }}
-            </a>
-        </div>
-
-    {% endfor %}
-</div>
-
+<p id="no-results" hidden>
+    No matching lore found.
+</p>
 <p id="no-results" hidden>
     No matching lore found.
 </p>
@@ -89,7 +89,6 @@ Echoes of Elarion | Lore
 
 {% endblock %}
 {% block scripts %}
-{{ block.super }}
+    {{ block.super }}
     <script src="{% static 'js/lore.js' %}"></script>
-    <script src="{% static 'js/lore-tree.js' %}"></script>
 {% endblock %}

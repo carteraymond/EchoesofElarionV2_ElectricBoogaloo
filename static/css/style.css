@@ -31,6 +31,113 @@ main {
     line-height: 1.6;
 }
 
+.lore-category {
+    display: block;
+    background: transparent;
+    border: none;
+    padding: 8px 12px;
+    font: inherit;
+    font-weight: bold;
+    color: inherit;
+    cursor: pointer;
+    text-align: left;
+}
+
+.lore-category:hover {
+    background-color: rgba(139, 105, 20, 0.12);
+}
+
+.lore-category:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+#lore-tree ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+/* Archives of Elarion */
+
+#lore-search {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    padding: 12px;
+    margin: 15px 0 20px;
+    border: 1px solid #a58b63;
+    border-radius: 6px;
+    font: inherit;
+}
+
+#lore-tree ul {
+    list-style: none;
+    padding-left: 22px;
+    margin: 6px 0;
+}
+
+#lore-tree > ul {
+    padding-left: 0;
+}
+
+#lore-tree li {
+    margin: 5px 0;
+}
+
+.lore-category {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    background: transparent;
+    border: none;
+    border-radius: 5px;
+    color: inherit;
+    font: inherit;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+}
+
+.lore-category::before {
+    content: "▸ ";
+}
+
+.lore-category[aria-expanded="true"]::before {
+    content: "▾ ";
+}
+
+.lore-category:hover {
+    background-color: rgba(139, 105, 20, 0.12);
+}
+
+.lore-category:focus-visible,
+.lore-link:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+.lore-link {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.lore-link:hover {
+    background-color: rgba(139, 105, 20, 0.12);
+    text-decoration: underline;
+}
+
+#no-results {
+    padding: 12px;
+    font-style: italic;
+}
+
+/* Respect HTML's hidden attribute even with display rules. */
+#lore-tree [hidden],
+#no-results[hidden] {
+    display: none;
+}
+
 .lore-entry {
     border: 1px solid #aaa;
     padding: 15px;
