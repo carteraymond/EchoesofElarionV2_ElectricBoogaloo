@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'lore',
     'campaign',
+    'worldmap',
 ]
 
 MIDDLEWARE = [

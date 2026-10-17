@@ -22,10 +22,12 @@ def home(request):
     return render(request, "campaign/home.html",context)
 #This runs only if the player has reached level 2, which is the requirement to access the history page. If they haven't reached level 2, they will be redirected to the home page.
 def history(request):
+    # Temporarily removed level restriction, will look into a better implementation later. For now, the player can access the history page regardless of their level.
+
     level = request.session.get("level",1)
 
-    if level < 2:
-        return redirect("home")
+    # if level < 2:
+    #     return redirect("home")
 
     player_name = request.session.get("player_name", "Adventurer")
     xp = request.session.get("xp", 0)

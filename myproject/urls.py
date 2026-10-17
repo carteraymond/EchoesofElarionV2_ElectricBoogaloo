@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('lore/', include('lore.urls')),
     path('', include('campaign.urls')),
+    path("map/", include("worldmap.urls")),
 ]

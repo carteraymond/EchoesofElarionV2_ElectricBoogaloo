@@ -25,11 +25,7 @@ function searchLore() {
 
 const noResults = document.querySelector("#no-results");
 
-if (matchingEntries.length === 0) {
-    noResults.hidden = false;
-} else {
-    noResults.hidden = true;
-}
+noResults.hidden = matchingEntries.length > 0;
 
     console.log("Matching lore:", matchingEntries);
 }

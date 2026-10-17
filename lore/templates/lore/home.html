@@ -27,6 +27,7 @@ Echoes of Elarion | Lore
 <hr>
 
 <h3>Choose a topic to explore</h3>
+<div id="lore-tree"></div>
 
 <input
     type="search"
@@ -90,4 +91,5 @@ Echoes of Elarion | Lore
 {% block scripts %}
 {{ block.super }}
     <script src="{% static 'js/lore.js' %}"></script>
+    <script src="{% static 'js/lore-tree.js' %}"></script>
 {% endblock %}
