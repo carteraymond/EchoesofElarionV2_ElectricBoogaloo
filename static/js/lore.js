@@ -2,7 +2,7 @@
 const loreDataElement = document.querySelector("#lore-data");
 const loreData = JSON.parse(loreDataElement.textContent);
 
-// 2. Define the hierarchy.
+// 2. Define the hierarchy of lore categories and topics. This doesnt store the entire lore data, just the structure of the encyclopedia. The actual lore content is stored in the loreData object.
 const loreTree = {
     title: "Elarion",
     children: [
@@ -25,14 +25,31 @@ const loreTree = {
             children: [
                 { key: "concordance", children: [] }
             ]
-        }
+        },
+        {
+            title: "Cities & Settlements",
+            children: [
+                { key: "luminara", children: [] },
+                { key: "caledonia", children: [] },
+                { key: "tarnwatch", children: [] }
+            ]
+        },
+        {
+            title: "Natural Regions",
+            children: [
+                { key: "verdant_expanse", children: [] },
+                { key: "ashen_marshes", children: [] }
+            ]
+        },
     ]
 };
 
 // 3. Remember which categories are expanded.
 const expandedCategories = new Set();
 
-// 4. Recursively search the hierarchy.
+// 4. Recursively search the hierarchy, then
+// recursively check whether this node or any descendant
+// contains the search term. The search stops at leaf nodes.
 function matchesSearch(node, searchTerm) {
     const title = node.key
         ? loreData[node.key]?.title || ""

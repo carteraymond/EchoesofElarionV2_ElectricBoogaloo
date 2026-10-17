@@ -1,3 +1,5 @@
+// Use Leaflet's simple coordinate system to display
+// a fictional world map instead of real-world geography.
 const map = L.map("world-map", {
     crs: L.CRS.Simple,
     minZoom: -1,
@@ -33,7 +35,7 @@ const locations = [
         key: "luminara",
         name: "Luminara",
         description: "A great city in the Heartlands of Solis.",
-        loreKey: "sundering",
+        loreKey: "luminara",
         y: 560,
         x: 770
     },
@@ -41,7 +43,7 @@ const locations = [
         key: "caledonia",
         name: "Port of Caledonia",
         description: "A coastal settlement of Elarion.",
-        loreKey: "null",
+        loreKey: "caledonia",
         y: 585,
         x: 1113
     },
@@ -50,16 +52,24 @@ const locations = [
         name: "Tidewell",
         description: "A mysterious landmark associated with the tides.",
         loreKey: "wells",
-        y: 397,
-        x: 1374
+        y: 440,
+        x: 1233
     },
     {
         key: "verdant",
         name: "The Verdant Expanse",
         description: "A lush and vibrant region of Elarion.",
-        loreKey: "null",
+        loreKey: "verdant_expanse",
         y: 538,
         x: 321
+    },
+    {
+        key: "ashen",
+        name: "The Ashen Marshes",
+        description: "A desolate and dangerous region of Elarion.",
+        loreKey: "ashen_marshes",
+        y: 207,
+        x: 1269
     }
 ];
 

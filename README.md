@@ -1,10 +1,16 @@
-Overview
+# Overview
 
-Echoes of Elarion is an interactive web application built with Python and Django. The application allows users to enter an adventurer name and explore the lore of the fictional world of Elarion. As users discover new pieces of lore, they earn experience points and can eventually level up to unlock additional content.
+Echoes of Elarion is an interactive web application designed to support a custom Dungeons & Dragons campaign. The application allows players to explore the fictional world of Elarion through an interactive world map and a searchable encyclopedia known as the Archives of Elarion.
 
-The purpose of this project is to gain practical experience developing web applications with Python and Django. This project demonstrates how Django handles web pages, URL routing, templates, user input, sessions, and dynamically generated content. The application is also designed to be expanded into a larger interactive experience in the future.
+The purpose of this project was to strengthen my understanding of JavaScript by developing interactive features that communicate with an existing Django web application. I wanted to explore how JavaScript can manipulate HTML elements, respond to user input, organize complex information, and improve the overall user experience without requiring the server to reload the page for every interaction.
 
-How to Run
+The Archives of Elarion uses JavaScript to dynamically generate a hierarchy of lore categories and entries. Players can expand and collapse categories, search for specific information, and navigate through multiple levels of historical and geographical knowledge. The search system uses recursive functions to examine nested categories and identify matching entries. JavaScript array methods such as `filter()`, `forEach()`, and `some()` are used to process the information and construct the interface.
+
+I also incorporated the Leaflet JavaScript library to create an interactive map of Elarion. The map displays a custom world image with clickable markers representing important locations. These markers provide information about each location and connect players to related entries in the Archives.
+
+Through this project, I gained experience with JavaScript objects, arrays, recursion, event listeners, DOM manipulation, JSON data, and external libraries. I also learned how JavaScript can work alongside Python and Django to create a more dynamic web application.
+
+# How to Run
 
 To run Echoes of Elarion on a local computer, you will need Python installed.
 
@@ -41,61 +47,39 @@ http://127.0.0.1:8000/
 
 The application begins on the Welcome page, where the user enters their adventurer name before beginning their journey.
 
-Software Demo
-
-[Software Demo Video](https://youtu.be/3bqb-JTxYu4)
-
-
-# Web Pages
-
-**Welcome Page**
-
-The Welcome page is the starting point of the application. The user enters an adventurer name and submits the form. Django stores the player's name, experience points, level, and discovered lore in the user's session before sending them to the Home page.
-
-**Home Page**
-
-The Home page displays the player's name, current level, and experience points. It also provides an introduction to the world of Elarion and gives the player access to the Lore page.
-
-When the player reaches Level 2, the Home page dynamically displays a new Path of History that was previously unavailable.
-
-**Lore Page**
-
-The Lore page allows the player to choose from several topics about the world of Elarion. The available topics include the Wells of Elarion, the War of Sundering, Nytherael, the Concordance, and the Strange Observer.
-
-When a player selects a topic, Django dynamically displays the selected lore entry. The first time a player discovers a topic, they receive 1 XP. Discovering the same topic again does not award additional XP.
-
-After discovering all five unique lore entries, the player reaches 5 XP and advances to Level 2.
-
-**Path of History**
-
-The Path of History is unlocked when the player reaches Level 2. This page provides additional historical information about Elarion and expands upon the mystery of the Strange Observer.
-
-The page is protected by Django so that players below Level 2 cannot access it directly. Players who have not reached the required level are redirected back to the Home page.
+# Software Demo
+[Software Demo Video](http://youtube.link.goes.here)
 
 # Development Environment
 
-The software was developed using Visual Studio Code, Python, Django, HTML, CSS, Git, GitHub, and SQLite.
+I developed this project using Visual Studio Code as my primary code editor, with Git and GitHub for version control and repository management. I used a local Django development server to run and test the application in a web browser, along with the browser's developer tools to troubleshoot JavaScript errors and inspect dynamically generated HTML elements.
 
-The primary programming language used was Python. Django 5.2.17 was used as the web framework for handling URL routing, views, sessions, and server-side template rendering.
+The primary programming language explored in this project was JavaScript, using modern ECMAScript syntax (ES6). JavaScript was responsible for handling user interactions, searching nested data structures, creating HTML elements, and managing the interactive map.
 
-HTML was used to create the structure and content of the web pages. CSS was used to style the application and provide a consistent visual design.
+The project also uses the following technologies:
 
-The application uses Django's built-in session system to store player information such as the player's name, XP, level, and discovered lore.
+- **Python and Django:** Provide the existing web application structure, URL routing, templates, session management, and lore data.
+- **HTML and CSS:** Define the website's structure and appearance, including the dynamically generated Archives interface.
+- **JavaScript (ES6):** Implements recursive functions, array methods, event listeners, DOM manipulation, and dynamic content rendering.
+- **Leaflet:** An external JavaScript mapping library used to display the custom world map, manage markers, and provide interactive navigation.
+- **JSON:** Transfers structured lore information from Django templates into JavaScript.
+- **Git and GitHub:** Track development changes and maintain the project repository.
 
 # Useful Websites
 
-* [Django Documentation](https://docs.djangoproject.com/)
-* [Django Templates Documentation](https://docs.djangoproject.com/en/5.2/topics/templates/)
-* [Django Sessions Documentation](https://docs.djangoproject.com/en/5.2/topics/http/sessions/)
-* [Django Static Files Documentation](https://docs.djangoproject.com/en/5.2/howto/static-files/)
-* [Python Documentation](https://docs.python.org/3/)
+- [MDN Web Docs — JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [MDN Web Docs — Document Object Model (DOM)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
+- [MDN Web Docs — Array Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+- [MDN Web Docs — Recursion](https://developer.mozilla.org/en-US/docs/Glossary/Recursion)
+- [Leaflet Documentation](https://leafletjs.com/reference.html)
+- [Django Documentation](https://docs.djangoproject.com/en/5.2/)
+- [GitHub Docs](https://docs.github.com/en)
 
 # Future Work
 
-* Add additional levels and unlockable paths.
-* Add more lore entries, characters, locations, and historical events.
-* Expand the Path of History into a larger interactive progression system.
-* Add a database to permanently store player progression.
-* Add additional interactive choices and player decisions.
-* Improve the visual design with additional artwork and themed elements.
-* Expand the application into a larger interactive experience based on the world of Elarion.
+- **SQL Database Integration:** Replace the hardcoded lore entries, category hierarchy, and map location information with a relational database to simplify adding and managing new content.
+- **Dynamic Content Management:** Develop an interface for creating, editing, and deleting lore entries without modifying Python or JavaScript source files.
+- **Improved Map Integration:** Automatically generate map markers and related lore links using information retrieved from the database.
+- **Expanded Campaign Encyclopedia:** Add additional locations, historical events, organizations, and characters to create a more complete reference for players.
+- **Persistent User Preferences:** Remember which Archives categories players have expanded, even after refreshing the page or returning to the website.
+- **Additional Interactive Features:** Explore more ways to connect the world map, player progression, and campaign information through JavaScript.
