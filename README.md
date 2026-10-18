@@ -48,7 +48,7 @@ http://127.0.0.1:8000/
 The application begins on the Welcome page, where the user enters their adventurer name before beginning their journey.
 
 # Software Demo
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/sjKoiJwPjaQ)
 
 # Development Environment
 
